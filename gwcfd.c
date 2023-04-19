@@ -163,6 +163,7 @@ static int parse_argv(int argc, char *argv[], struct gwcfd_ctx *ctx)
 {
 	int c, nr_threads = DEFAULT_NR_THREADS;
 
+	ctx->has_start_tid = false;
 	ctx->end_tid = -1ull;
 	while (1) {
 		c = getopt_long(argc, argv, short_options, long_options, NULL);
@@ -481,6 +482,7 @@ static void try_load_last_tid(struct gwcfd_ctx *ctx)
 
 static int start_comifuro_ticket_var_dumper(struct gwcfd_ctx *ctx)
 {
+	uint64_t tid;
 	size_t i;
 	int ret;
 
@@ -488,7 +490,12 @@ static int start_comifuro_ticket_var_dumper(struct gwcfd_ctx *ctx)
 
 	if (!ctx->has_start_tid)
 		try_load_last_tid(ctx);
+	else
+		atomic_store_explicit(&ctx->tid_pos, ctx->start_tid, memory_order_relaxed);
 
+	tid = atomic_load_explicit(&ctx->tid_pos, memory_order_relaxed);
+	printf("Starting from tid %llu (p=%d)\n", (unsigned long long)tid,
+	       (int)ctx->has_start_tid);
 	for (i = 1; i < ctx->nr_thread; i++) {
 		pthread_t *thr;
 		void *arg;
