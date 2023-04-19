@@ -353,7 +353,7 @@ static int comifuro_ticket_save(struct gwcfd_ctx *ctx, uint64_t tid, const char 
 		break;
 	}
 
-	snprintf(fpath, sizeof(fpath), "%s/%llu.html", day_path,
+	snprintf(fpath, sizeof(fpath), "%s/%llu.html.txt", day_path,
 		 (unsigned long long)tid);
 
 	fp = fopen(fpath, "w");
