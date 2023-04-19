@@ -2,10 +2,9 @@
 /*
  * Copyright (C) 2023  Alviro Iskandar Setiawan <alviro.iskandar@gnuweeb.org>
  *
- * Comifuro ticket var dumper. The comifuro ticket selling system is has a
- * vulnerability that allows anyone to access the purchased tickets without
- * any authentication. This program is a simple ticket dumper that uses
- * multi-threading to dump the tickets.
+ * gwcfd is a simple multithreaded high-performance Comifuro ticket var dumper
+ * for GNU/Weeb. The comifuro ticket selling system has a vulnerability that
+ * allows anyone to access the purchased tickets without any authentication.
  *
  * Inspired by Moe Poi's comifuro ticket var dumper.
  * Link: https://t.me/GNUWeeb/720657
