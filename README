@@ -1,0 +1,32 @@
+gwcfd
+-----
+gwcfd is a simple multithreaded high-performance Comifuro ticket var dumper for
+GNU/Weeb. The comifuro ticket selling system has a vulnerability that allows
+anyone to access the purchased tickets without any authentication.
+
+Inspired by Moe Poi's comifuro ticket var dumper.
+Link: https://t.me/GNUWeeb/720657
+
+
+Usage
+-----
+Usage: gwcfd [options]
+Options:
+  -h, --help		Show this help message
+  -v, --version		Show version information
+  -t, --threads		Number of threads to use
+  -o, --out-dir		Output directory
+  -s, --start-tid	Start ticket ID (default: last_tid file or 16816356000000)
+  -e, --end-tid		End ticket ID (default: non-stop)
+
+
+License
+-------
+This software is licensed under the GPLv2. See the LICENSE file for details.
+
+
+Author
+------
+Alviro Iskandar Setiawan <alviro.iskandar@gnuweeb.org>
+
+2023-04-19
